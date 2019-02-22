@@ -10,9 +10,6 @@ router.get('/', (req, res) => {
 
 // Create a user
 router.post('/signup', (req, res) => {
-    res.status(200).json({
-        message: 'test message'
-    })
     User.create({
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password, 10),
