@@ -10,7 +10,9 @@ router.get('/', (req, res) => {
 
 // Create a user
 router.post('/signup', (req, res) => {
-
+    res.status(200).json({
+        message: 'test message'
+    })
     User.create({
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password, 10),
@@ -52,22 +54,5 @@ router.post('/signin', (req, res) => {
     })
     .catch(err => res.send(500, err.message));
 });
-
-// Create user test
-// {
-// 	"username": "test",
-// 	"password": "test",
-// 	"email": "test@test.com",
-// 	"url": "testurl",
-//  "file": "testfile",
-// 	"genre": ["Adventure", "Action"],
-// 	"favGame": ["Tekken", "Mortal Kombat"]
-// }
-
-// Signin test
-// {
-// 	"username": "test",
-// 	"password": "test"
-// }
 
 module.exports = router;
